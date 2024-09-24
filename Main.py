@@ -3,7 +3,9 @@ from FinanceTracker import FinanceTracker
 def Main():
 
     account_list = []
+    logged_in_status = False
     current_account = ""
+    new_account = True
 
     while(input("continue Y/N") == "Y"):
 
@@ -12,7 +14,17 @@ def Main():
 
         if (choice == "a"):
 
-            account_list.append(FinanceTracker(input("Enter your username: "),input("Enter your password: ")))
+            username = input("Enter your username: ")
+            
+            for account in account_list:
+
+                if username == account.get_userid():
+                    new_account = True
+                    print("This username already exisits, please try a different name.")
+
+            if new_account == True:
+                account_list.append(FinanceTracker(username,input("Enter your password: ")))
+                new_account = False
             
         elif(choice == "b"):
 
@@ -26,6 +38,7 @@ def Main():
 
                         if(login_status == 1):
                             current_account = account
+                            logged_in_status = True
                             print("Log in Successful")
                             print("----------------------------")
                             
@@ -45,9 +58,17 @@ def Main():
                 print("Error: No accounts found")
                 print("----------------------------")
 
-            if(account != ""):
+            if(logged_in_status == True):
 
-                print("This is your account")
+                logged_in_interface(current_account)
+
+def logged_in_interface(account):
+
+    print("(a) Display current status")
+    print("(b) Add")
+
+    
+    print(account.get_userid())
 
 Main()
 
