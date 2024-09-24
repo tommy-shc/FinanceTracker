@@ -1,5 +1,7 @@
 import requests
 
+#some comment
+
 class CurrencyConverter:
     
     #Initializes the currency converter class with an API key and the base Currency 
