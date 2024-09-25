@@ -45,13 +45,3 @@ class CurrencyConverter:
 
 
 
-converter = CurrencyConverter()
-amount = 100
-from_currency = "CAD"
-to_currency = "EUR"
-converted_amount = converter.convert(amount, from_currency, to_currency)
-
-print(f"{amount} {from_currency} = {converted_amount} {to_currency}")
-
-converted_amount = converter.convert(amount, from_currency, to_currency)
-

@@ -1,4 +1,4 @@
-from Transaction import Transaction
+from Classes.Transaction import Transaction
 
 class Budget:
 
@@ -18,7 +18,8 @@ class Budget:
         #Adds a transaction to the budget and updates the current total spending
 
         if transaction.category == self.category and transaction.type == "expense":
-            self.current_spending += transaction.amount
+            self.current_spending +=  int(transaction.amount)
+            self.transaction_list.append(transaction)
             print("Transaction successfully logged")
         else:
             print("Error logging transaction")
@@ -26,3 +27,7 @@ class Budget:
     def is_exceeded(self):
 
         return self.current_spending > self.limit
+    
+    def __repr__(self):
+
+        return f"Budget for {self.category} ({self.period}): Limit = {self.limit}, Current Spending = {self.current_spending}"

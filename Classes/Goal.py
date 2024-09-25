@@ -10,7 +10,7 @@ class Goal:
 
     def update_savings(self, amount):
         #Increases current savings
-        self.current_savings += amount
+        self.current_savings += int(amount)
     
     def progress(self):
         #Returns progress towards meeting the savings goal
@@ -19,3 +19,7 @@ class Goal:
     def is_goal_reached(self):
         
         return self.current_savings >= self.target_amount
+    
+    def __repr__(self):
+
+        return f"Goal: {self.goal_name}, Target: {self.target_amount}, Savings: {self.current_savings}, Due Date: {self.due_date}"
