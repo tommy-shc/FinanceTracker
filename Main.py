@@ -76,6 +76,7 @@ def logged_in_interface(personal_account):
         print("(d) Add a savings goal")
         print("(e) Add an amount to savings")
         print("(f) See all saving goals")
+        print("(g) Generate a budget report")
         print("(z) Exit to Menu")
         choice = input()
 
@@ -91,8 +92,8 @@ def logged_in_interface(personal_account):
             personal_account.add_amount_to_savings(input("Enter the goal's name: "),input("Enter the amount: "))
         elif choice == "f" :
             personal_account.print_all_savings()
-        elif choice == "e" :
-            continue
+        elif choice == "g" :
+            personal_account.generate_budget_report()
         elif choice == "e" :
             continue
 Main()

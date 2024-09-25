@@ -4,6 +4,7 @@ from Classes.Transaction import Transaction
 from Classes.Goal import Goal
 from SavingsManager import GoalManager
 from CurrencyConverter import CurrencyConverter
+from ReportManager import ReportManager
 
 class FinanceTracker:
     
@@ -15,6 +16,7 @@ class FinanceTracker:
         self.budget_manager = BudgetManager()
         self.currency_converter = CurrencyConverter()
         self.savings_manager = GoalManager()
+        self.report_manager = ReportManager()
 
     def add_budget(self, category, limit):
 
@@ -39,6 +41,10 @@ class FinanceTracker:
     def print_all_savings(self):
         
         self.savings_manager.print_all_goals()
+
+    def generate_budget_report(self):
+
+        print(self.report_manager.generate_budget_report(self.budget_manager))
 
     def login(self, username, password):
 

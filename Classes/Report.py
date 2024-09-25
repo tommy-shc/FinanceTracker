@@ -1,10 +1,8 @@
 import csv
 import pandas as pd
-from Transaction import Transaction
-from Budget import Budget
 
 class Report:
-    def __init__(self, transactions):
+    def __init__(self, transactions = ""):
         
         #Initializes the report class with a list of transactions
         self.transactions = transactions
